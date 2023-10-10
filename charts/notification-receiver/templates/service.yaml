@@ -16,4 +16,4 @@ spec:
       protocol: TCP
       name: http
   selector:
-    {{- include "podinfo.selectorLabels" . | nindent 6 }}
+    {{- include "notification-receiver.selectorLabels" . | nindent 6 }}

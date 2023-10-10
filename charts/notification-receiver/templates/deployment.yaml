@@ -12,7 +12,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      {{- include "podinfo.selectorLabels" . | nindent 6 }}
+      {{- include "notification-receiver.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
