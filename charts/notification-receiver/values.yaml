@@ -1,8 +1,12 @@
 service:
   type: NodePort
   port: 8888
+  annotations: {}
 
 imagePullSecrets: ""
 
 image:
   pullPolicy: Always
+
+notification-receiver:
+  labels: {}
