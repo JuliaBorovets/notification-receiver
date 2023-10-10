@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "notification-receiver"
+  labels:
+    app: notification-receiver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      {{- include "notification-receiver.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        app: notification-receiver
+        {{- include "notification-receiver.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "notification-receiver-test:1}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.port }}
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /healthy
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: http
