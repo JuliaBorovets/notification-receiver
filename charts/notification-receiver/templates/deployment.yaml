@@ -8,12 +8,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      {{- include "notification-receiver.selectorLabels" . | nindent 6 }}
+      app: "notification-receiver"
   template:
     metadata:
       labels:
         app: notification-receiver
-        {{- include "notification-receiver.selectorLabels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:

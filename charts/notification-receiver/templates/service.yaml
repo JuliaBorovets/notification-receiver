@@ -4,7 +4,6 @@ metadata:
   name: "notification-receiver"
   labels:
     app: "notification-receiver"
-    {{- include "notification-receiver.selectorLabels" . | nindent 8 }}
 spec:
   type: {{ .Values.service.type }}
   ports:
@@ -13,4 +12,4 @@ spec:
       protocol: TCP
       name: http
   selector:
-    {{- include "notification-receiver.selectorLabels" . | nindent 4 }}
+    app: "notification-receiver"
