@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: "notification-receiver"
   labels:
-    app: notification-receiver
+    app: "notification-receiver"
 spec:
   replicas: 1
   selector:
@@ -21,7 +21,7 @@ spec:
       {{- end }}
       containers:
         - name: {{ .Chart.Name }}
-          image: "notification-receiver-test:1}"
+          image: "notification-receiver-test:1"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
