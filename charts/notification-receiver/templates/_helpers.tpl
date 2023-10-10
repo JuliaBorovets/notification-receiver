@@ -36,16 +36,10 @@ Common labels
 */}}
 {{- define "notification-receiver.labels" -}}
 helm.sh/chart: {{ include "notification-receiver.chart" . }}
+app.kubernetes.io/name: {{ include "notification-receiver.fullname" . }}
 {{ include "notification-receiver.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
-{{- end }}
-
-{{/*
-Selector labels
-*/}}
-{{- define "notification-receiver.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "notification-receiver.fullname" . }}
 {{- end }}
