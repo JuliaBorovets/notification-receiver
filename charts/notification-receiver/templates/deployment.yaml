@@ -12,7 +12,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      {{- include "notification-receiver.labels" . | nindent 6 }}
+      app: {{ include "notification-receiver.fullname" . }}
   template:
     metadata:
       labels:
