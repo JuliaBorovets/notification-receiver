@@ -37,7 +37,6 @@ Common labels
 {{- define "notification-receiver.labels" -}}
 helm.sh/chart: {{ include "notification-receiver.chart" . }}
 app.kubernetes.io/name: {{ include "notification-receiver.fullname" . }}
-app: {{ include "notification-receiver.fullname" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}

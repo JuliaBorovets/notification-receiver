@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: "notification-receiver"
   labels:
+    app: "notification-receiver"
     {{- include "notification-receiver.labels" . | nindent 4 }}
 {{- with .Values.service.annotations }}
   annotations:
@@ -12,10 +13,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ include "notification-receiver.fullname" . }}
+      app: "notification-receiver"
   template:
     metadata:
       labels:
+        app: "notification-receiver"
         {{- include "notification-receiver.labels" . | nindent 6 }}
     spec:
       {{- with .Values.imagePullSecrets }}

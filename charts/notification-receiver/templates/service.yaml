@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: "notification-receiver"
   labels:
+    app: "notification-receiver"
     {{- include "notification-receiver.labels" . | nindent 4 }}
 {{- with .Values.service.annotations }}
   annotations:
@@ -16,4 +17,4 @@ spec:
       protocol: TCP
       name: http
   selector:
-    {{- include "notification-receiver.labels" . | nindent 6 }}
+    app: "notification-receiver"
