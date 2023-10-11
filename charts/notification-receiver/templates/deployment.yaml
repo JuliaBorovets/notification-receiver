@@ -24,7 +24,7 @@ spec:
       {{- end }}
       containers:
         - name: {{ .Chart.Name }}
-          image: "notification-receiver-test:1"
+          image: {{ .Values.image.name }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http

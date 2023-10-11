@@ -7,6 +7,7 @@ imagePullSecrets: ""
 
 image:
   pullPolicy: Always
+  name: "notification-reciever:0.0.1"
 
 notification-receiver:
   labels: {}
