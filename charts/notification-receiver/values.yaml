@@ -6,8 +6,8 @@ service:
 imagePullSecrets: ""
 
 image:
-  pullPolicy: Always
-  name: "juliaborovets/notification-receiver:0.0.1"
+  pullPolicy: IfNotPresent
+  name: "notification-receiver:0.0.1"
 
 notification-receiver:
   labels: {}
