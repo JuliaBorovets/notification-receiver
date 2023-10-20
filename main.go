@@ -19,7 +19,7 @@ func notificationsHandler(ctx *fiber.Ctx) error {
 	body := ctx.Body()
 	log.Printf("Body: %s", string(body))
 	log.Printf("-------")
-	return ctx.SendStatus(fiber.StatusBadGateway)
+	return ctx.SendStatus(fiber.StatusAccepted)
 }
 
 func healthyHandler(ctx *fiber.Ctx) error {
