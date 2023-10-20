@@ -7,7 +7,7 @@ imagePullSecrets: ""
 
 image:
   pullPolicy: IfNotPresent
-  name: "notifications-receiver:0.0.2"
+  name: "notification-receiver:0.0.1"
 
 notification-receiver:
   labels: {}
